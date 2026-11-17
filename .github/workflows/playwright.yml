@@ -31,5 +31,16 @@ jobs:
       - name: Install Firefox
         run: python -m playwright install --with-deps firefox
 
+      - name: Create reports directory
+        run: mkdir -p reports
+
       - name: Run tests
-        run: python -m pytest -v
+        run: python -m pytest -v --html=reports/pytest-report.html --self-contained-html
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-test-report
+          path: reports/
+          if-no-files-found: warn
