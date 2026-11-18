@@ -8,6 +8,7 @@ def suggestion_dropdown_page(browser_setup):
     return SuggestionDropdownPage(browser_setup)
 
 
+@pytest.mark.smoke
 def test_header_verify(suggestion_dropdown_page):
     suggestion_dropdown_page.header_verify("Suggession Class Example")
 

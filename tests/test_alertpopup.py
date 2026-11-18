@@ -14,6 +14,7 @@ def alert_popup_page(browser_setup):
     return AlertPopupPage(browser_setup)
 
 @pytest.mark.parametrize("test_data", test_data_list)
+@pytest.mark.smoke
 def test_accept_alert(alert_popup_page, browser_setup, test_data):
     name = test_data['firstName']
     browser_setup.on("dialog", lambda dialog: dialog.accept())

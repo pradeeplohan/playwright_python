@@ -13,6 +13,7 @@ def frame_page(browser_setup):
     return FramePage(browser_setup)
 
 @pytest.mark.parametrize('test_data_fix', test_data_list)
+@pytest.mark.smoke
 def test_verify_header_title(frame_page, test_data_fix):
     header = test_data_fix['frameHeader']
     frame_page.verify_header(header)

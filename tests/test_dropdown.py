@@ -8,9 +8,11 @@ from pagesObjects.dropdown_page import Dropdown
 def dropdown_page(browser_setup):
     return Dropdown(browser_setup)
 
+@pytest.mark.smoke
 def test_dropdown1(dropdown_page):
     header = dropdown_page.dropdown_header()
 
+@pytest.mark.smoke
 def test_verify_header(dropdown_page):
     header = "Dropdown Example"
     dropdown_page.verify_header(header)

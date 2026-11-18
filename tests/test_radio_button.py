@@ -7,7 +7,7 @@ from pagesObjects.radio_page import radioButtonPage
 def radio_button_page(browser_setup):
     return radioButtonPage(browser_setup)
 
-
+@pytest.mark.smoke
 def test_radio_button1(playwright: Playwright, browser_setup, radio_button_page):
    # radio_button_page.open_url()
     button_header = radio_button_page.get_radio_button_header()

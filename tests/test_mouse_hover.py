@@ -13,6 +13,7 @@ def mouse_hover_page(browser_setup):
     return MouseHoverPage(browser_setup)
 
 @pytest.mark.parametrize('test_data_fix', test_data_list, indirect=True)
+@pytest.mark.smoke
 def test_verify_header_title(mouse_hover_page, test_data_fix):
     header = test_data_fix['mouseHoverHeader']
     mouse_hover_page.verify_header(header)
