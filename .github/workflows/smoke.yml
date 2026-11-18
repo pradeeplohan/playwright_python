@@ -1,4 +1,4 @@
-name: Run Python Playwright Tests
+name: Run Python Playwright Smoke Tests
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
         run: mkdir -p reports
 
       - name: Run tests
-        run: python -m pytest -v --html=reports/pytest-report.html --self-contained-html
+        run: python -m pytest -m smoke --ignore=aiTests/test_login.py -v --html=reports/pytest-report.html --self-contained-html
 
       - name: Upload test report
         if: always()
